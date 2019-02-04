@@ -15,29 +15,31 @@
 <body>
     <section id="sidemenu">
         <nav>
-            <a href="#" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
+            <a href="dashboard.php" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
+           
            
             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
             <div class="dropdown-container">
-                <a href="courses.html">Add Courses</a>
-                <a href="removecourses.html">Remove courses</a>
+                <a href="addcourse.php">Add Courses</a>
+                <a href="listcourses.html">Remove courses</a>
             </div>
             <a href="#"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
             <div class="dropdown-container">
-                <a href="content.html">Add Content</a>
-                <a href="Removecontent.html">Remove Content</a>
-            </div>
-
+                <a href="listcourses.php">Add Content</a>
+                <a href="listcontent.php">Remove Content</a>
+                </div>
             <a href="#"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
             <div class="dropdown-container">
-                <a href="#">List Users</a>
-                <a href="#">Delete Users</a>
+                <a href="listusers.php">List Users</a>
+                <a href="listusers.php">Delete Users</a>
             </div>
         </nav>
 
     </section>
     
-    <section id="content-area">
+
+
+ <section id="content-area">
         <div class="heading">
             <h1>Dashboard</h1>
             <p>welcome to ABBEYCODE</p>
@@ -59,42 +61,38 @@
         <a href="#" class="active"><i class="fa fa-sticky-note-o eye" aria-hidden="true"></i>COURSES</a>
     <span> 100</span>
        </div>
-       <div class="container">
-            <h2>CONTENT AREA</h2>
-            <p>Remove contents</p>            
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Content</th>
-                  <th> Action </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>content 1</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                  
-                </tr>
-                <tr>
-                  <td>content 2</td>
-                  <td><a href="deletecourses.php"> Remove Content </a> </td>
-                </tr>
-                <tr>
-                  <td>content 3</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 4</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 5</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>          
-              </tbody>
-            </table>
-          </div>
-          
-          </body>
-          </html>
-          
+<!-- </div>
+     <div class="cards">
+       <h6>STARTING CODING</h6>
+    </div>
+    <div class="cards">
+         <h6>CONTACT</h6>
+    </div> -->
+             <!-- <div class="dash">
+                    <img src="/images/3.jpeg" alt=" " class="img-fluid">
+                    <h6>Stats</h6>
+                 </div> -->
+		
+		<?php
+			require "db_connect.php";
+			// $user_id = $_SESSION['user']['username'];
+			$query = mysqli_query($connect, "SELECT * FROM users") or die(mysqli_error());
+			if (mysqli_num_rows($query) > 0) {
+				# code...
+				 echo "<table class='table'>
+		        <tr><th>S/N</th><th>Username</th><th>Email</th><th>Phone Number</th> <th> Delete User </th>
+		        </tr>";
+		        $i = 0;
+		        while($fetch = mysqli_fetch_array($query)) {
+		            echo "<tr><td>".($i+1)."</td><td>".$fetch['username']. "</td><td>".$fetch['email']. "</td><td>".$fetch['phone']. "</td><td> <a href='deleteuser.php?id=".$fetch['id']."'> Delete User </a> </td></tr>";
+		            $i++;
+		        }
+		        echo "</table>";
+		    } else {
+		        echo "<div class='alert alert-danger'>No User Added</div>";
+		    }
+		?>
+		           
+    </section>
+   </body>
+   </html>

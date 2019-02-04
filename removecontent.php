@@ -1,3 +1,7 @@
+<?php
+  require "db_connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +23,18 @@
            
             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
             <div class="dropdown-container">
-                <a href="courses.html">Add Courses</a>
-                <a href="removecourses.html">Remove courses</a>
+                <a href="addcourse.php">Add Courses</a>
+                <a href="listcourses.html">Remove courses</a>
             </div>
             <a href="#"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
             <div class="dropdown-container">
-                <a href="content.html">Add Content</a>
-                <a href="Removecontent.html">Remove Content</a>
-            </div>
-
+                <a href="listcourses.php">Add Content</a>
+                <a href="listcontent.php">Remove Content</a>
+                </div>
             <a href="#"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
             <div class="dropdown-container">
-                <a href="#">List Users</a>
-                <a href="#">Delete Users</a>
+                <a href="listusers.php">List Users</a>
+                <a href="listusers.php">Delete Users</a>
             </div>
         </nav>
 
@@ -62,37 +65,14 @@
        <div class="container">
             <h2>CONTENT AREA</h2>
             <p>Remove contents</p>            
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Content</th>
-                  <th> Action </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>content 1</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                  
-                </tr>
-                <tr>
-                  <td>content 2</td>
-                  <td><a href="deletecourses.php"> Remove Content </a> </td>
-                </tr>
-                <tr>
-                  <td>content 3</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 4</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 5</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>          
-              </tbody>
-            </table>
+            <?php
+              $id = $_GET['id'];
+              $query = mysqli_query($connect, "DELETE * FROM content WHERE id = '{$id}'")
+
+              if ($query){
+                header("location: listcourses.php?rel=success");
+              }
+            ?>
           </div>
           
           </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>dashboard</title>
+<title> Add Courses </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
@@ -17,27 +17,29 @@
         <nav>
             <a href="#" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
            
+           
             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
             <div class="dropdown-container">
-                <a href="courses.html">Add Courses</a>
-                <a href="removecourses.html">Remove courses</a>
+                <a href="addcourse.php">Add Courses</a>
+                <a href="listcourses.html">Remove courses</a>
             </div>
             <a href="#"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
             <div class="dropdown-container">
-                <a href="content.html">Add Content</a>
-                <a href="Removecontent.html">Remove Content</a>
-            </div>
-
+                <a href="listcourses.php">Add Content</a>
+                <a href="listcontent.php">Remove Content</a>
+                </div>
             <a href="#"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
             <div class="dropdown-container">
-                <a href="#">List Users</a>
-                <a href="#">Delete Users</a>
+                <a href="listusers.php">List Users</a>
+                <a href="listusers.php">Delete Users</a>
             </div>
         </nav>
 
     </section>
     
-    <section id="content-area">
+
+
+ <section id="content-area">
         <div class="heading">
             <h1>Dashboard</h1>
             <p>welcome to ABBEYCODE</p>
@@ -59,42 +61,53 @@
         <a href="#" class="active"><i class="fa fa-sticky-note-o eye" aria-hidden="true"></i>COURSES</a>
     <span> 100</span>
        </div>
-       <div class="container">
-            <h2>CONTENT AREA</h2>
-            <p>Remove contents</p>            
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Content</th>
-                  <th> Action </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>content 1</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                  
-                </tr>
-                <tr>
-                  <td>content 2</td>
-                  <td><a href="deletecourses.php"> Remove Content </a> </td>
-                </tr>
-                <tr>
-                  <td>content 3</td>
-                  <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 4</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>
-                <tr>
-                   <td>content 5</td>
-                   <td><a href="deletecourses.php"> Remove Content </a></td>
-                </tr>          
-              </tbody>
-            </table>
-          </div>
-          
-          </body>
-          </html>
-          
+       <form method="POST">
+			<label> Course Name </label>
+			<input type="text" name="course_name"> <br>
+
+			<label> Instructor </label>
+			<input type="text" name="instructor"> <br>
+
+			<input type="submit" name="addcourse" value="ADD COURSE">
+
+			<?php
+				require "db_connect.php";
+				if (isset($_POST['addcourse'])) {
+					# code...
+					//Assign variable to the course name and so on
+					$course_name = $_POST['course_name'];
+					$instructor = $_POST['instructor'];
+					//Check if course exists
+					$query_check = mysqli_query($connect, "SELECT course_name, instructor FROM courses WHERE course_name = '{$course_name}' OR instructor = '{$instructor}'");
+					if (mysqli_num_rows($query_check) > 0) {
+						# code...
+						echo "<p> Course Already Exists </p>";
+					}
+					else{
+						$query_insert = mysqli_query($connect, "INSERT INTO courses (course_name, instructor) VALUES ('{$course_name}', '{$instructor}')");
+
+						if ($query_insert) {
+							# code...
+							echo "Course Added Successfully!";
+						}
+
+				}
+					}
+			?>
+			<a href="listcourses.php"> List Courses </a>
+		</form>
+<!-- </div>
+     <div class="cards">
+       <h6>STARTING CODING</h6>
+    </div>
+    <div class="cards">
+         <h6>CONTACT</h6>
+    </div> -->
+             <!-- <div class="dash">
+                    <img src="/images/3.jpeg" alt=" " class="img-fluid">
+                    <h6>Stats</h6>
+                 </div> -->
+           
+    </section>
+   </body>
+   </html>
