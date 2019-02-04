@@ -19,17 +19,16 @@
             <a href="dashboard.php" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
            
            
-            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
+            <a href="listcourses.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
             <div class="dropdown-container">
                 <a href="addcourse.php">Add Courses</a>
-                <a href="listcourses.html">Remove courses</a>
+                <a href="listcourses.php">List courses</a>
             </div>
-            <a href="#"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
-            <div class="dropdown-container">
-                <a href="listcourses.php">Add Content</a>
-                <a href="listcontent.php">Remove Content</a>
-                </div>
-            <a href="#"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
+            <a href="content.php"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
+            <!-- <div class="dropdown-container">
+                <a href="listcontent.php"> Content </a>
+                </div> -->
+            <a href="listusers.php"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
             <div class="dropdown-container">
                 <a href="listusers.php">List Users</a>
                 <a href="listusers.php">Delete Users</a>
@@ -46,10 +45,6 @@
             <p>welcome to ABBEYCODE</p>
         </div>
 
-     <div class="cards">
-            <a href="#" class="active"><i class="fa fa-user eye" aria-hidden="true"></i>ADMIN</a>
-            <span> 1</span>
-     </div>
      <div class="cards">
             <a href="#" class="active"><i class="fa fa-eye eye" aria-hidden="true"></i>VISITING</a>
             <span> 500 </span>

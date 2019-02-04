@@ -14,21 +14,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
     <section id="sidemenu">
-        <nav>
-            <a href="#" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
+         <nav>
+            <a href="dashboard.php" class="active"><i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
            
            
-            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
+            <a href="listcourses.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Courses</a>
             <div class="dropdown-container">
                 <a href="addcourse.php">Add Courses</a>
-                <a href="listcourses.html">Remove courses</a>
+                <a href="listcourses.php">List courses</a>
             </div>
-            <a href="#"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
-            <div class="dropdown-container">
-                <a href="listcourses.php">Add Content</a>
-                <a href="listcontent.php">Remove Content</a>
-                </div>
-            <a href="#"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
+            <a href="listcontent.php"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>Content</a>
+            <!-- <div class="dropdown-container">
+                <a href="listcontent.php"> Content </a>
+                </div> -->
+            <a href="listusers.php"><i class="fa fa-edit" aria-hidden="true"></i>User</a>
             <div class="dropdown-container">
                 <a href="listusers.php">List Users</a>
                 <a href="listusers.php">Delete Users</a>
@@ -45,7 +44,7 @@
             <p>welcome to ABBEYCODE</p>
         </div>
 
-     <div class="cards">
+     <!-- <div class="cards">
             <a href="#" class="active"><i class="fa fa-user eye" aria-hidden="true"></i>ADMIN</a>
             <span> 1</span>
      </div>
@@ -60,15 +59,15 @@
        <div class="cards">
         <a href="#" class="active"><i class="fa fa-sticky-note-o eye" aria-hidden="true"></i>COURSES</a>
     <span> 100</span>
-       </div>
+       </div> -->
        <form method="POST">
 			<label> Course Name </label>
-			<input type="text" name="course_name"> <br>
+			<input type="text" class="form-control" name="course_name" required> 
 
 			<label> Instructor </label>
-			<input type="text" name="instructor"> <br>
+			<input type="text" class="form-control" name="instructor" required> <br> <br>
 
-			<input type="submit" name="addcourse" value="ADD COURSE">
+			<input type="submit" name="addcourse" class="btn btn-primary btn-lg" value="ADD COURSE">
 
 			<?php
 				require "db_connect.php";
@@ -94,7 +93,8 @@
 				}
 					}
 			?>
-			<a href="listcourses.php"> List Courses </a>
+            <br> <br>
+			<h1>  <a href="listcourses.php"> List Courses </a> </h1> 
 		</form>
 <!-- </div>
      <div class="cards">

@@ -46,35 +46,7 @@
             <h1>Dashboard</h1>
             <p>welcome to ABBEYCODE</p>
         </div>
-
-     <!-- <div class="cards">
-            <a href="#" class="active"><i class="fa fa-user eye" aria-hidden="true"></i>ADMIN</a>
-            <span> 1</span>
-     </div>
-     <div class="cards">
-            <a href="#" class="active"><i class="fa fa-eye eye" aria-hidden="true"></i>VISITING</a>
-            <span> 500 </span>
-    </div>
-    <div class="cards">
-        <a href="#" class="active"><i class="fa fa-comments eye" aria-hidden="true"></i>TESTIMONIES</a>
-       <span> 50</span>
-    </div>
-       <div class="cards">
-        <a href="#" class="active"><i class="fa fa-sticky-note-o eye" aria-hidden="true"></i>COURSES</a>
-    <span> 100</span>
-       </div> -->
-<!-- </div>
-     <div class="cards">
-       <h6>STARTING CODING</h6>
-    </div>
-    <div class="cards">
-         <h6>CONTACT</h6>
-    </div> -->
-             <!-- <div class="dash">
-                    <img src="/images/3.jpeg" alt=" " class="img-fluid">
-                    <h6>Stats</h6>
-                 </div> -->
-           <div style="margin-left: 20px;">
+       <div style="margin-left: 20px;">
 			<!-- <a href="home.php"> SEE all posts </a> -->
 		</div>
 		<div>

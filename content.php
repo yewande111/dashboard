@@ -83,7 +83,7 @@
 		        $i = 0;
 		        while($fetch = mysqli_fetch_array($query)) {
 		        	$id = $fetch['id'];
-		            echo "<tr><td>".($i+1)."</td><td>".$fetch['course_name']. "</td><td>".$fetch['instructor']. "</td><td><a href='editcourse.php?id=".$id."'> Edit Course </a></td><td> <a href='deletecourses.php?id=".$id."'> Delete Course </a> </td></tr>";
+		            echo "<tr><td>".($i+1)."</td><td>".$fetch['course_name']. "</td><td>".$fetch['instructor']. "</td><td><a href='listcontent.php?id=".$id."'> List Content </a></td><td> <a href='addcontent.php?id=".$id."'> Add Content </a> </td></tr>";
 		            $i++;
 		        }
 		        echo "</table>";
